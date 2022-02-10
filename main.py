@@ -20,6 +20,7 @@ This is an algoritm that attempts to solve a game of Wordle.
 """
 
 from collections import Counter
+from english_words import english_words_lower_alpha_set
 
 class WordleSolver:
     def __init__(self):
@@ -34,6 +35,7 @@ class WordleSolver:
         self.__invalid_words = set()
         self.__common_value = 1
         self.__menu_option()
+        
 
     def __menu_option(self):
         """
@@ -131,15 +133,13 @@ class WordleSolver:
 
     def __add_to_word_set(self):
         """
-        This function adds all the words in words.txt into list
-        form that makes it easier to use in the program.
+        This function adds all the 5 letter words from the english
+        words set to the all words list.
         """
 
-        file = open('words.txt', 'r')
-        words = file.readlines()
-
-        for word in words:
-            self.__all_words.append(word.strip())
+        for word in english_words_lower_alpha_set:
+            if len(word) == 5:
+                self.__all_words.append(word)
 
     def __find_most_common_letter(self, index):
         """
