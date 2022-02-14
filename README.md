@@ -14,11 +14,12 @@ The program has 2 features:
 
 This program requires Python 3.10 or later to be installed on the user's device. To run the program, a file called `results.txt` must be placed in the same folder as the `main.py` file - this will allow the `Simulate all Words` functionality to work.
 
-# Future Improvements / Things I am working on
+## Future Improvements / Things I am working on
 
 - To get a success rate of closer to 100%.
 - To make the program so you can find the algorithm's average with a certain starting word.
 - To make a more detailed summary when running the WordleSolver, the program will output how many words have been eliminated after each guess if the user wants to know.
+- To ensure the words used match to those that the Wordle game uses.
 
 ## Contact 
 
