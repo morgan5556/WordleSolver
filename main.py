@@ -13,7 +13,7 @@ File name: 	main.py
 Created:	9th February 2022
 Author:	Morgan Lyons
 
-Contact: morgan.lyons06@gmail.com
+Contact: morgan@morganlyons.xyz
 Web: www.morganlyons.xyz
 
 This is an algoritm that attempts to solve a game of Wordle.
@@ -34,9 +34,10 @@ class WordleSolver:
         self.__known_letters = set()
         self.__invalid_words = set()
         self.__common_value = 1
+        self.__total_guesses = 0
+        self.__total_words = 0
         self.__menu_option()
         
-
     def __menu_option(self):
         """
         This function is the menu. It asks the user whether they want to run the 
@@ -86,15 +87,18 @@ class WordleSolver:
         """
 
         print("-" * 30)
+        print("This process has been started, it may take a couple of minutes . . . ")
 
         self.__add_to_word_set()
         word_list_copy = self.__all_words
 
-
         for answer in word_list_copy:
+            self.__total_words = self.__total_words + 1
             guess_list = []
             for turn in range(1, 11):
+                self.__total_guesses = self.__total_guesses + 1
                 word = self.__find_best_word()
+
                 guess_list.append(word)
                 outcome = self.__determine_outcome(answer, word)
 
@@ -107,6 +111,7 @@ class WordleSolver:
             
             self.__reset_wordle()
         
+        self.__calculate_average()
         print("This process has been completed. The results can be viewed in the results.txt file.")
 
     def __determine_outcome(self, answer, word):
@@ -273,6 +278,14 @@ class WordleSolver:
         """
         
         self.__blank_letters = self.__blank_letters - self.__known_letters
+
+    def __calculate_average(self):
+        """
+        This calculates the average guess when simulating all words.
+        """
+
+        average = self.__total_guesses / self.__total_words
+        print("The average is: " + str(average))
 
     def __reset_wordle(self):
         """
