@@ -14,6 +14,8 @@ The program has 2 features:
 
 This program requires Python 3.10 or later to be installed on the user's device. To run the program, a file called `results.txt` must be placed in the same folder as the `main.py` file - this will allow the `Simulate all Words` functionality to work.
 
+For the program to run, the `english_words` package must be installed on the device running the application. More information on the package can be found [here](https://pypi.org/project/english-words/).
+
 ## Future Improvements / Things I am working on
 
 - To get a success rate of closer to 100%.
